@@ -133,6 +133,34 @@ Private App Subnet의 EC2 인스턴스가 외부 인터넷으로 아웃바운드
 
 ---
 
+## Step 7. DB Subnet Group 생성
+Private DB Subnet 2개를 묶어 DB Subnet Group을 생성했다.
+
+- Name: `tier3-core-db-subnet-group`
+- VPC: `aws-3tier-core-project`
+- Subnets:
+  - Private-DB-2a
+  - Private-DB-2c
+
+![DB Subnet Group](./screenshots/17-db-subnet-group.png)
+
+---
+
+## Step 8. RDS 생성
+MySQL 기반 RDS 인스턴스를 생성했다.
+
+- DB identifier: `tier3-core-mysql`
+- Engine: MySQL
+- VPC: `aws-3tier-core-project`
+- DB subnet group: `tier3-core-db-subnet-group`
+- Public access: No
+- Security group: `3tier-core-SG-DB`
+
+![RDS Created](./screenshots/18-rds-created.png)
+![RDS Connectivity](./screenshots/19-rds-connectivity.png)
+
+---
+
 - RDS 생성
 - Launch Template 생성
 - Target Group 생성
