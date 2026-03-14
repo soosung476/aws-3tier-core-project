@@ -93,7 +93,46 @@ Private App Subnet의 EC2 인스턴스가 외부 인터넷으로 아웃바운드
 
 ---
 
-- Security Group 생성
+## Step 6. Security Group 설계 및 생성
+
+계층별 접근 범위를 제한하기 위해 ALB, App, DB 각각에 대해 별도의 Security Group을 생성했다.
+
+### 1) ALB Security Group
+- 이름: `3tier-core-SG-ALB`
+- 목적: 인터넷에서 들어오는 HTTP 요청 수신
+- Inbound:
+  - HTTP 80 from `0.0.0.0/0`
+- Outbound:
+  - 기본 전체 허용
+
+![ALB SG Inbound](./screenshots/11-sg-alb-inbound.png)
+![ALB SG Outbound](./screenshots/12-sg-alb-outbound.png)
+
+### 2) App Security Group
+- 이름: `3tier-core-SG-App`
+- 목적: ALB에서 들어오는 HTTP 요청 수신
+- Inbound:
+  - HTTP 80 from `3tier-core-SG-ALB`
+- Outbound:
+  - 기본 전체 허용
+
+![APP SG Inbound](./screenshots/13-sg-app-inbound.png)  
+![APP SG outbound](./screenshots/14-sg-app-outbound.png)  
+
+### 3) DB Security Group
+- 이름: `3tier-core-SG-DB`
+- 목적: App계층에서 들어오는 Mysql요청 수신
+- Inbound:
+  - Mysql 3306 from `3tier-core-SG-App`
+- Outbound:
+  - 기본 전체 허용
+
+![DB SG Inbound](./screenshots/15-sg-db-inbound.png)  
+![DB SG Inbound](./screenshots/16-sg-db-outbound.png)  
+
+
+---
+
 - RDS 생성
 - Launch Template 생성
 - Target Group 생성
