@@ -17,7 +17,7 @@
 
 ## 아키텍처 다이어그램
 
-![AWS 3-Tier Core Architecture](./diagrams/aws-3tier-core.png)
+![AWS 3-Tier Core Architecture](./diagram/aws-3tier-core.png)
 
 ---
 
