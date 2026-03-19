@@ -3,7 +3,7 @@ dnf update -y || yum update -y
 
 dnf install -y nginx || yum install -y nginx
 
-cat > /usr/share/nginx/html/index.html <<'EOF'
+cat > /usr/share/nginx/html/index.html << EOF
 <!DOCTYPE html>
 <html lang="ko">
 <head>
