@@ -19,7 +19,7 @@
 - 최소 CloudWatch Alarm 구성
 
 ### Phase 2. Operational Enhancements
-- IAM Role and SSM Session Manager *(planned)*
+- IAM Role and SSM Session Manager *(완료)*
 - Launch Template Update and Instance Refresh *(planned)*
 - CloudWatch Dashboard *(planned)*
 - HTTPS, ACM, and Route 53 *(planned)*
@@ -61,3 +61,9 @@
 - HTTPS + ACM + Route 53 연결
 - Terraform 코드화
 - 운영 자동화 구조 확장
+
+## 최근 업데이트
+
+- `core-build.md` 기준으로 AWS 3-Tier Core 아키텍처를 재구성했다.
+- App 서버용 EC2 Launch Template에 IAM Role을 적용해 AWS Systems Manager 기반 운영 접근이 가능하도록 구성했다.
+- 보안그룹에는 SSH 22 포트를 열지 않고, Private App Instance 접근은 AWS Systems Manager Session Manager로 구현했다.
