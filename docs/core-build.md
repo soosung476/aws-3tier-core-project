@@ -1,10 +1,21 @@
-여기에 들어갈 내용:
+# Core Build
 
+이 문서는 AWS Console 기반으로 AWS 3-Tier Core Architecture를 구축한 과정을 정리한 문서입니다.
+
+범위:
+- VPC / Subnet / Route Table / IGW / NAT Gateway
+- ALB / Target Group / Launch Template / Auto Scaling Group
+- EC2 App Tier / RDS MySQL / Security Group
+- 최소 CloudWatch Alarm
+
+이후 운영 고도화(SSM, HTTPS, Dashboard, Terraform)는 별도 문서로 분리하여 관리합니다.
 
 ## Step 1. VPC 생성
 - VPC 이름: aws-3tier-core-project
 - IPv4 CIDR: 10.0.0.0/16
 - DNS resolution: Enabled
+
+---
 
 ![VPC 생성 화면](./screenshots/01-vpc-created.png)
 
