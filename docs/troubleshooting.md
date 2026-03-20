@@ -211,15 +211,43 @@ ASG에서 현재 인스턴스 ID를 먼저 확인한 뒤 검색하는 방식이 
 
 ---
 
-## 9. 이번 프로젝트에서 얻은 가장 큰 정리
+## 9. Instance Refresh가 성공으로 끝났지만 인스턴스 1대가 Version 1에 남아 있었음
 
-이번 프로젝트를 통해 가장 크게 정리된 개념은 다음과 같다.
+### 문제
+Launch Template Version 2를 ASG에 반영한 뒤 Instance Refresh를 실행했지만,  
+refresh 상태는 **Successful**로 끝났는데도 인스턴스 1대는 여전히 **Version 1** 상태로 남아 있었다.
 
-- 인터넷에서 직접 접근 가능한 것은 ALB만 둔다
-- App EC2와 RDS는 모두 Private Subnet에 둔다
-- Public / Private 구분은 이름이 아니라 Route Table과 연결 구조가 결정한다
-- Security Group은 계층별 접근 범위를 제한하는 핵심 수단이다
-- NAT Gateway는 Private App 서버의 아웃바운드 통신을 위한 리소스다
-- 다이어그램은 배치 구조와 요청 흐름을 분리해서 표현해야 읽기 쉽다
+또한 ALB DNS에 접속해 새로고침하면  
+기존 HTML과 수정된 HTML이 번갈아 출력되었다.
 
-이러한 이해를 바탕으로, 이후 HTTPS, IAM Role, SSM, Terraform 단계로 확장할 계획이다.
+### 원인
+첫 번째 Instance Refresh 실행 시  
+**Desired configuration을 명시하지 않은 상태**에서 **Skip matching**을 사용했다.
+
+이로 인해 AWS가 refresh 시작 시점의 비교 기준으로 교체 대상을 판단했고,  
+그 결과 인스턴스 1대가 교체 대상에서 제외된 것으로 보인다.
+
+### 해결
+다음 순서로 다시 확인하고 재실행했다.
+
+1. ASG 인스턴스 목록에서 Launch Template 버전 확인
+2. 현재 인스턴스가 `Version 1` / `Version 2`로 섞여 있는 상태 확인
+3. Instance Refresh를 다시 실행하면서 **Desired configuration** 사용
+4. Launch Template `3tier-core-lt-app`, Version `2` 명시
+5. 이후 Version 1 인스턴스가 교체되는 것 확인
+
+### 배운 점
+Instance Refresh가 **Successful**로 끝났다고 해서  
+모든 인스턴스가 최신 버전으로 교체된 것은 아닐 수 있다.
+
+특히 **Skip matching**을 사용할 때는  
+**Desired configuration을 명시한 뒤 실행하는 것이 더 안전하다.**
+
+또한 최종 검증은 상태 메시지만 볼 것이 아니라,
+- ASG 인스턴스 버전
+- Target Group 상태
+- ALB 실제 응답
+
+까지 함께 확인해야 한다.
+
+---
