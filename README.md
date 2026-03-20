@@ -34,13 +34,13 @@
 - [Security Group Design](docs/security-group-design.md)
 - [Troubleshooting](docs/troubleshooting.md)
 
-### Phase 2. Operational Enhancements
+### Phase 2. 운영고도화
 - [IAM Role and SSM Session Manager](docs/iam-role-ssm-session-manager.md)
 - [Launch Template Update and Instance Refresh](docs/launch-template-instance-refresh.md)
 - CloudWatch Dashboard *(planned)*
 - HTTPS, ACM, and Route 53 *(planned)*
 
-### Phase 3. Infrastructure as Code
+### Phase 3. Infrastructure as Code (IaC 단계)
 - Terraform *(planned)*
 
 ## Current Status
