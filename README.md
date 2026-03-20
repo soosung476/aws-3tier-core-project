@@ -47,6 +47,7 @@
 - AWS Console 기반 Core Build 문서화 완료
 - Security Group 설계 문서화 완료
 - Troubleshooting 문서화 완료
+- IAM Role, SSM Session Manager 문서화 완료
 - 운영 고도화 및 Terraform 단계는 예정
 
 ## Why This Project
@@ -55,7 +56,6 @@
 - 이후 운영 개선과 IaC 전환까지 이어질 수 있는 기준선 프로젝트
 
 ## Future Improvements
-- IAM Role / SSM Session Manager 적용
 - Launch Template 버전 관리 및 Instance Refresh
 - CloudWatch Dashboard 구성
 - HTTPS + ACM + Route 53 연결
