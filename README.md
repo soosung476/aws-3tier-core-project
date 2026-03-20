@@ -35,7 +35,7 @@
 - [Troubleshooting](docs/troubleshooting.md)
 
 ### Phase 2. Operational Enhancements
-- IAM Role and SSM Session Manager *(planned)*
+- [IAM Role and SSM Session Manager](docs/iam-role-ssm-session-manager.md)
 - Launch Template Update and Instance Refresh *(planned)*
 - CloudWatch Dashboard *(planned)*
 - HTTPS, ACM, and Route 53 *(planned)*
