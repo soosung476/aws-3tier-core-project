@@ -18,13 +18,13 @@
 - Security Group 계층 분리
 - 최소 CloudWatch Alarm 구성
 
-### Phase 2. Operational Enhancements
-- IAM Role and SSM Session Manager *(완료)*
-- Launch Template Update and Instance Refresh *(planned)*
+### Phase 2. 운영고도화
+- IAM Role 등록 및 SSM Session Manager을 통한 접근
+- Launch Template 수정 후 Instance Refresh를 통한 인스턴스 교체
 - CloudWatch Dashboard *(planned)*
 - HTTPS, ACM, and Route 53 *(planned)*
 
-### Phase 3. Infrastructure as Code
+### Phase 3. Infrastructure as Code (IaC 단계)
 - Terraform *(planned)*
 
 ## Documentation
@@ -36,7 +36,7 @@
 
 ### Phase 2. Operational Enhancements
 - [IAM Role and SSM Session Manager](docs/iam-role-ssm-session-manager.md)
-- Launch Template Update and Instance Refresh *(planned)*
+- [Launch Template Update and Instance Refresh](docs/launch-template-instance-refresh.md)
 - CloudWatch Dashboard *(planned)*
 - HTTPS, ACM, and Route 53 *(planned)*
 
@@ -46,9 +46,10 @@
 ## Current Status
 - AWS Console 기반 Core Build 문서화 완료
 - Security Group 설계 문서화 완료
-- Troubleshooting 문서화 완료
 - IAM Role, SSM Session Manager 문서화 완료
-- 운영 고도화 및 Terraform 단계는 예정
+- Launch Template, Instance Refresh 문서화 완료
+- Troubleshooting 문서화 완료
+- CloudWash Dashboard, HTTP, ACM and Route3 및 Terraform 단계는 예정
 
 ## Why This Project
 - 단순 EC2 1대 배포가 아니라 실무형 3-Tier 구조를 직접 설계하고 구현
@@ -56,7 +57,6 @@
 - 이후 운영 개선과 IaC 전환까지 이어질 수 있는 기준선 프로젝트
 
 ## Future Improvements
-- Launch Template 버전 관리 및 Instance Refresh
 - CloudWatch Dashboard 구성
 - HTTPS + ACM + Route 53 연결
 - Terraform 코드화
@@ -65,5 +65,5 @@
 ## 최근 업데이트
 
 - `core-build.md` 기준으로 AWS 3-Tier Core 아키텍처를 재구성했다.
-- App 서버용 EC2 Launch Template에 IAM Role을 적용해 AWS Systems Manager 기반 운영 접근이 가능하도록 구성했다.
-- 보안그룹에는 SSH 22 포트를 열지 않고, Private App Instance 접근은 AWS Systems Manager Session Manager로 구현했다.
+- Launch Template에 새로운 버전 v2를 만들고 ASG에 적용, Instance Refresh를 통해서 안전하게 대체작업을 했다.
+- Launch Template 실습중 발생한 문제에 대해서 Troubleshooting.md 문서에 정리했다.
