@@ -152,37 +152,7 @@ AWS Console에서 Instance Refresh를 실행했다.
 
 ---
 
-## 7. 검증 내용
-
-### 검증 1 — Launch Template Version 확인
-ASG 인스턴스 목록에서  
-각 인스턴스가 어떤 Launch Template 버전을 사용하는지 확인했다.
-
-v1 / v2 혼합 상태가 남아 있음을 확인, 이후에는 구버전 인스턴스가 교체되는 과정을 확인했다.
-
-### 검증 2 — Target Group 상태 확인
-새로 생성된 인스턴스가 Target Group에서  
-정상적으로 `healthy` 상태가 되는지 확인했다.
-
-즉, 인스턴스가 단순 생성된 것이 아니라  
-실제로 ALB 뒤에서 서비스 가능한 상태인지 검증했다.
-
-### 검증 3 — ALB 실제 응답 확인
-ALB DNS로 접속해 새로고침을 반복하면서  
-웹 페이지 문구가 어떤 버전으로 보이는지 확인 이후에는  
-기존 HTML과 수정된 HTML이 번갈아 보였고,  
-이를 통해 mixed-version 상태를 확인할 수 있었다.
-
-### 검증 4 — 최종 교체 진/lauchtemplate/ 실행 후  
-기존 Version 1 인스턴스가 종료되고  
-Version 2 기준의 새 인스턴스로 교체되는 과정을 확인했다.
-
-즉, 최종적으로는  
-새 Launch Template 버전 기준으로 인스턴스가 정렬되는 흐름을 검증했다.
-
----
-
-## 8. 스크린샷
+## 7. 스크린샷
 
 ### Launch Template Version 2 생성 화면
 ![Launch Template Version 1](./screenshots/lauchtemplate/01-launch-template-v1.png)
@@ -219,7 +189,7 @@ Version 2 기준의 새 인스턴스로 교체되는 과정을 확인했다.
 
 ---
 
-## 9. 정리
+## 8. 정리
 
 이번 단계에서는 기존 3-Tier Core 구조를 다시 구축한 뒤,  
 **Launch Template 버전 관리**와 **Instance Refresh**를 적용해  
