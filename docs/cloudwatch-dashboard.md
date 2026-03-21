@@ -92,7 +92,7 @@ Free Storage Space와 Connections는 현재 값 확인이 중요해 Number widge
 
 ---
 
-## 4. Custom Alarm 구성과
+## 4. Custom Alarm 구성
 
 이번 단계에서는 운영 관점에서 의미 있는 커스텀 알람 4개를 추가했다.
 
