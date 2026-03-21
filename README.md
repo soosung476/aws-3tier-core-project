@@ -21,7 +21,7 @@
 ### Phase 2. 운영고도화
 - IAM Role 등록 및 SSM Session Manager을 통한 접근
 - Launch Template 수정 후 Instance Refresh를 통한 인스턴스 교체
-- CloudWatch Dashboard *(planned)*
+- CloudWatch Dashboard 구성 완료
 - HTTPS, ACM, and Route 53 *(planned)*
 
 ### Phase 3. Infrastructure as Code (IaC 단계)
@@ -37,7 +37,7 @@
 ### Phase 2. 운영고도화
 - [IAM Role and SSM Session Manager](docs/iam-role-ssm-session-manager.md)
 - [Launch Template Update and Instance Refresh](docs/launch-template-instance-refresh.md)
-- CloudWatch Dashboard *(planned)*
+- [CloudWatch Dashboard](docs/cloudwatch-dashboard.md)
 - HTTPS, ACM, and Route 53 *(planned)*
 
 ### Phase 3. Infrastructure as Code (IaC 단계)
@@ -48,8 +48,9 @@
 - Security Group 설계 문서화 완료
 - IAM Role, SSM Session Manager 문서화 완료
 - Launch Template, Instance Refresh 문서화 완료
+- CloudWash Dashboard 구성 완료
 - Troubleshooting 문서화 완료
-- CloudWash Dashboard, HTTP, ACM and Route3 및 Terraform 단계는 예정
+- HTTP, ACM and Route3 및 Terraform 단계는 예정
 
 ## Why This Project
 - 단순 EC2 1대 배포가 아니라 실무형 3-Tier 구조를 직접 설계하고 구현
@@ -57,7 +58,6 @@
 - 이후 운영 개선과 IaC 전환까지 이어질 수 있는 기준선 프로젝트
 
 ## Future Improvements
-- CloudWatch Dashboard 구성
 - HTTPS + ACM + Route 53 연결
 - Terraform 코드화
 - 운영 자동화 구조 확장
