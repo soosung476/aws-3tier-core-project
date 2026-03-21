@@ -51,7 +51,7 @@
 - CloudWash Dashboard 구성, 문서화 완료
 - HTTPS + ACM + Route53 실제 도메인 연결 및 문서화 완료
 - Troubleshooting 문서화 완료
-- HTTP, ACM and Route3 및 Terraform 단계는 예정
+- Terraform 단계는 예정
 
 ## Why This Project
 - 단순 EC2 1대 배포가 아니라 실무형 3-Tier 구조를 직접 설계하고 구현
