@@ -22,7 +22,7 @@
 - IAM Role 등록 및 SSM Session Manager을 통한 접근
 - Launch Template 수정 후 Instance Refresh를 통한 인스턴스 교체
 - CloudWatch Dashboard 구성 완료
-- HTTPS, ACM, and Route 53 *(planned)*
+- HTTPS, ACM, and Route 53 외부도메인 이용
 
 ### Phase 3. Infrastructure as Code (IaC 단계)
 - Terraform *(planned)*
@@ -38,7 +38,7 @@
 - [IAM Role and SSM Session Manager](docs/iam-role-ssm-session-manager.md)
 - [Launch Template Update and Instance Refresh](docs/launch-template-instance-refresh.md)
 - [CloudWatch Dashboard](docs/cloudwatch-dashboard.md)
-- HTTPS, ACM, and Route 53 *(planned)*
+- [HTTPS, ACM, and Route 53](docs/https-acm-route53.md)
 
 ### Phase 3. Infrastructure as Code (IaC 단계)
 - Terraform *(planned)*
@@ -48,7 +48,8 @@
 - Security Group 설계 문서화 완료
 - IAM Role, SSM Session Manager 문서화 완료
 - Launch Template, Instance Refresh 문서화 완료
-- CloudWash Dashboard 구성 완료
+- CloudWash Dashboard 구성, 문서화 완료
+- HTTPS + ACM + Route53 실제 도메인 연결 및 문서화 완료
 - Troubleshooting 문서화 완료
 - HTTP, ACM and Route3 및 Terraform 단계는 예정
 
@@ -58,12 +59,10 @@
 - 이후 운영 개선과 IaC 전환까지 이어질 수 있는 기준선 프로젝트
 
 ## Future Improvements
-- HTTPS + ACM + Route 53 연결
 - Terraform 코드화
 - 운영 자동화 구조 확장
 
 ## 최근 업데이트
 
-- `core-build.md` 기준으로 AWS 3-Tier Core 아키텍처를 재구성했다.
-- Launch Template에 새로운 버전 v2를 만들고 ASG에 적용, Instance Refresh를 통해서 안전하게 대체작업을 했다.
-- Launch Template 실습중 발생한 문제에 대해서 Troubleshooting.md 문서에 정리했다.
+- Cloudwatch Dashboard 구성 및 실습 완료
+- 외부 도메인에서 DNS 구매후 HTTPS + ACM + Route53 실습 완료.
