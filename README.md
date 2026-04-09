@@ -18,14 +18,14 @@
 - Security Group 계층 분리
 - 최소 CloudWatch Alarm 구성
 
-### Phase 2. 운영고도화
-- IAM Role 등록 및 SSM Session Manager을 통한 접근
+### Phase 2. 운영 고도화
+- IAM Role 등록 및 SSM Session Manager를 통한 접근
 - Launch Template 수정 후 Instance Refresh를 통한 인스턴스 교체
 - CloudWatch Dashboard 구성 완료
-- HTTPS, ACM, and Route 53 외부도메인 이용
+- HTTPS, ACM, and Route 53 외부 도메인 이용
 
 ### Phase 3. Infrastructure as Code (IaC 단계)
-- Terraform *(planned)*
+- Terraform 코드화 진행 중
 
 ## Documentation
 
@@ -34,24 +34,24 @@
 - [Security Group Design](docs/security-group-design.md)
 - [Troubleshooting](docs/troubleshooting.md)
 
-### Phase 2. 운영고도화
+### Phase 2. 운영 고도화
 - [IAM Role and SSM Session Manager](docs/iam-role-ssm-session-manager.md)
 - [Launch Template Update and Instance Refresh](docs/launch-template-instance-refresh.md)
 - [CloudWatch Dashboard](docs/cloudwatch-dashboard.md)
 - [HTTPS, ACM, and Route 53](docs/https-acm-route53.md)
 
 ### Phase 3. Infrastructure as Code (IaC 단계)
-- Terraform *(planned)*
+- [Terraform](https://github.com/soosung476/aws-3tier-terraform)
 
 ## Current Status
 - AWS Console 기반 Core Build 문서화 완료
 - Security Group 설계 문서화 완료
 - IAM Role, SSM Session Manager 문서화 완료
 - Launch Template, Instance Refresh 문서화 완료
-- CloudWash Dashboard 구성, 문서화 완료
-- HTTPS + ACM + Route53 실제 도메인 연결 및 문서화 완료
+- CloudWatch Dashboard 구성 및 문서화 완료
+- HTTPS + ACM + Route 53 실제 도메인 연결 및 문서화 완료
 - Troubleshooting 문서화 완료
-- Terraform 단계는 예정
+- Terraform 코드는 별도 Repository에서 진행 중
 
 ## Why This Project
 - 단순 EC2 1대 배포가 아니라 실무형 3-Tier 구조를 직접 설계하고 구현
@@ -59,10 +59,10 @@
 - 이후 운영 개선과 IaC 전환까지 이어질 수 있는 기준선 프로젝트
 
 ## Future Improvements
-- Terraform 코드화
 - 운영 자동화 구조 확장
 
-## 최근 업데이트
+## Recent Updates
 
-- Cloudwatch Dashboard 구성 및 실습 완료
-- 외부 도메인에서 DNS 구매후 HTTPS + ACM + Route53 실습 완료.
+- CloudWatch Dashboard 구성 및 실습 완료
+- 외부 도메인 구매 후 HTTPS + ACM + Route 53 실습 완료
+- Terraform 작업용 별도 Repository 연결
